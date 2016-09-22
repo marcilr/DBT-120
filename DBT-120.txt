@@ -1,0 +1,194 @@
+DBT-120.txt
+Created Mon Aug 25 10:09:45 AKDT 2008
+by Raymond E. marcil
+
+
+The D-Link DBT-120 wireless bluetooth to 2.0 usb adapter.  Purchased to interface debian 
+etch workstation to Blackberry Pearl 8100.  Not possible to get straight USB interface to
+work.  Incompatible interface.
+
+
+make:            D-Link
+support:         http://support.dlink.com
+                 (877)453-5465
+model:           DBT-120
+revision:        DBT-120_revC
+s/n:             F32G167005895
+mac:             00179A2B4EE8
+dimensions:      8.2 x 6.3 x 1.5 inches ; 2.9 ounces
+win-xp 
+  (displays as): Cambridge Silicon Radio Bluetooth Adapter
+price:           $14.99/$29.99 + shipping (Amazon Jan 13, 2008/Aug 19, 2008)
+
+
+
+
+Description
+===========
+The D-Link PersonalAirTM DBT-120revC USB Bluetooth Adapter is a very compact, low-profile 
+solution based on the Bluetooth 2.0 specification, making it compatible with other Bluetooth 
+enabled devices. The DBT-120 was designed and engineered from the ground up to be compact 
+and portable, making it the perfect solution for notebook computers, but also just as easy 
+to use with a desktop computer.
+
+The DBT-120 features standard 128-bit encryption that provides you with a higher level of 
+security for your data and communication.
+
+The D-Link PersonalAirTM DBT-120 includes Bluetooth management and connectivity software by 
+WidComm, which enables you to configure and access Bluetooth enabled devices quickly and 
+easily. The Bluetooth software enables your computer to discover and access available 
+Bluetooth services ranging from Internet access to wireless synchronization with your PDA or 
+cellular phone.
+
+Compatible with USB 1.1 and 2.0, the DBT-120 supports Windows XP SP2/2000 and Mac 10.4.3. 
+from: dlink.com/
+
+
+Wed Oct  1 15:37:14 AKDT 2008
+=============================
+VMware player, with win XP, displays the dbt-120 as "Cambridge Silicon Radio 
+Bluetooth Adapter"  Right-clicking the bllutooth icon in the task bar and selecting
+"Open Bluetooth Settings | Options" allows checking the "Turn discovery on" which 
+allows bluetooth devices to find the computer.
+
+Select bluetooh under applications on the Blackberry allows selection of
+"SPANGOLITE" the win XP workstation.  The prompts for "Enter number passkey 
+for SPANGOLITE"  Entered 1234.  Then win XP prompts to allow the device and 
+for the same passkey.
+
+
+
+Mon Aug 25 10:49:51 AKDT 2008
+=============================
+Testing on UAA ITS debian etch workstation.
+
+usb insertion
+-------------
+$ dmesg
+...
+usb 4-1: new full speed USB device using uhci_hcd and address 3
+usb 4-1: configuration #1 chosen from 1 choice
+
+usb removal
+-----------
+$ dmesg
+...
+usb 4-1: USB disconnect, address 3
+
+check kernel
+------------
+Check for bluetooth device.
+
+# grep ^[TPD] /proc/bus/usb/devices | grep Cls=e0 -B1 -A1
+T:  Bus=04 Lev=01 Prnt=01 Port=00 Cnt=01 Dev#=  4 Spd=12  MxCh= 0
+D:  Ver= 2.00 Cls=e0(unk. ) Sub=01 Prot=01 MxPS=64 #Cfgs=  1
+P:  Vendor=0a12 ProdID=0001 Rev=19.15
+from: gentoo-wiki.com/
+
+
+Configuration
+-------------
+The gnome desktop can be configured to displayt a bluetooth icon when the
+D-Link DBT-120 is inserted.  Test on Aug 25, 2008 on UAA ITS debian etch
+boothite workstation.
+
+Desktop | Preferences | Bluetooth Preferences
+
+General
+Notification area
+  Never display icon
+x Only display when adapter present
+  Always display icon
+
+
+bluez
+=====
+The bluez packages are used for accessing bluetooth devices. Need to install both
+the bluez-libs and bluez-utils.
+from: gentoo-wiki.com/
+
+The debian etch bluez-utils package installed both bluez-utils and libbluetooth2.
+  bluez-utils - Bluetooth tools and daemons
+  suggested: bluez-firmware
+  installed: bluez-firmware
+
+With the bluez-utils package installed and bluetooth preferences configured for
+"Only display when adapter present" the bluetooth icon is displayed on the 
+upper right of the gnome toolbar.
+
+usb insertion
+-------------
+CSR - bc4 
+Switched device into connectable mode
+
+usb removal
+-----------
+Bluetooth device
+Switch device into off mode
+
+
+bluetooth devices
+-----------------
+# hcitool dev                       <== Scan for local devices.
+Devices:
+        hci0    00:17:9A:2B:4E:E8   <== This matches dbt-120 mac.
+
+# hcitool scan                      <== Scan for remote devices.
+Scanning ...                        <== Nothing.
+
+# hcitool inq                       <== Inquire remote devices
+Inquiring ...                       <== Nothing.
+
+
+
+Tue Aug 19 08:05:58 AKDT 2008
+=============================
+Ordered a 2nd D-Link DBT-120 by mistake.  Forgot I had the 1st one:(
+
+D-Link DBT-120       $29.99
+Standard shipping     $5.98
+===========================
+            Total:   $35.57
+
+Put on blue.
+
+
+Sun Jan 13 16:56:59 AKST 2008
+=============================
+First D-Link DBT-120 ordered used from amazon.
+
+D-Link DBT-120 Wireless Bluetooth 2.0 USB Adapter  $14.99
+Used - Like New.
+
+Put on denali.
+
+from: orders/complete/20080113-amazon-blackberry.txt
+
+
+Links
+=====
+XmBlackBerry
+Link from:
+  http://forums.crackberry.com/f2/blackberry-linux-11680/
+http://xmblackberry.sourceforge.net/
+
+BlueZ
+For bluez-libs and bluez-utils
+http://bluez.sourceforge.net/
+
+D-Link Support
+Product Revisions
+http://support.dlink.com/products/revision.asp?productid=DBT-120
+http://support.dlink.com/products/view.asp?productid=DBT-120_revC
+
+D-Link DBT-120 Wireless Bluetooth 2.0 USB Adapter
+http://www.amazon.com/D-Link-DBT-120-Wireless-Bluetooth-Adapter/dp/\
+B00006B7DB/ref=sr_1_1?ie=UTF8&s=electronics&qid=1219161692&sr=8-1
+
+Reload this Page  Apple Wireless Keyboard
+Good link D-Link DBT-120 info
+http://www.linuxquestions.org/hcl/showproduct.php/product/2802
+
+HOWTO The host-to-host Bluetooth
+http://gentoo-wiki.com/HOWTO_The_host-to-host_Bluetooth
+
