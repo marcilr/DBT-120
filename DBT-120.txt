@@ -3,9 +3,10 @@ Created Mon Aug 25 10:09:45 AKDT 2008
 by Raymond E. marcil
 
 
-The D-Link DBT-120 wireless bluetooth to 2.0 usb adapter.  Purchased to interface debian 
-etch workstation to Blackberry Pearl 8100.  Not possible to get straight USB interface to
-work.  Incompatible interface.
+The D-Link DBT-120 wireless bluetooth to 2.0 usb adapter.
+Purchased to interface debian etch workstation to
+Blackberry Pearl 8100.  Not possible to get straight USB
+interface to work.  Incompatible interface.
 
 
 make:            D-Link
